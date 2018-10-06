@@ -4,7 +4,7 @@ import DefaultLayout from './layouts/Default.vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 
-Vue.use(Router)
+Vue.use(Router, )
 
 export default new Router({
   routes: [
@@ -15,14 +15,14 @@ export default new Router({
         {
           path: '',
           name: 'home',
-          component: Home,
+          component: Home
         },
         {
           path: '/about',
           name: 'about',
-          component: About,
-        },
-      ],
-    },
-  ],
-})
+          component: About
+        }
+      ]
+    }
+  ]
+}, )
