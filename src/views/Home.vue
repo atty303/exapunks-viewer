@@ -10,6 +10,8 @@
       @add="addFiles"
       @remove:cancel="cancelFile"
     />
+
+    <Solution v-for="file in allFiles" :solutionFile="file"/>
   </q-page>
 </template>
 
@@ -18,26 +20,38 @@
 
 <script lang="ts">
 import { Component, Vue, } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue'
 import { KaitaiStream } from 'kaitai-struct'
 
 import { ExapunksSolution } from '@/ksy/ExapunksSolution'
+import Solution from '@/components/Solution.vue'
+import { SolutionFile } from '@/models'
 
 @Component({
   components: {
-    HelloWorld
+    Solution
   }
 })
 export default class Home extends Vue {
+  private get allFiles(): SolutionFile {
+    return this.$store.getters.allFiles
+  }
+
   public addFiles(files: FileList): void {
-    console.log(files)
     for (const file of files) {
       const reader = new FileReader()
       reader.onload = (e: any) => {
         console.log(e)
-        const s = new KaitaiStream(e.target.result)
-        const sol = new ExapunksSolution(s)
-        console.log(sol)
+        const stream = new KaitaiStream(e.target.result)
+        let sol
+        let err
+        try {
+          sol = new ExapunksSolution(stream)
+        } catch (e) {
+          console.error(e)
+          err = '' + e
+        }
+        console.log(sol, err)
+        this.$store.dispatch('addFile', { name: file.name, solution: sol, error: err })
       }
       reader.readAsArrayBuffer(file)
     }
