@@ -10,15 +10,18 @@
   },
   "dependencies": {
     "kaitai-struct": "^0.8.0-SNAPSHOT.11",
+    "lodash": "^4.17.11",
     "quasar-extras": "^2.0.4",
     "quasar-framework": "^0.17.0",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
+    "vue-markdown": "^2.2.4",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.116",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-typescript": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
