@@ -40,7 +40,6 @@ export default class Home extends Vue {
     for (const file of files) {
       const reader = new FileReader()
       reader.onload = (e: any) => {
-        console.log(e)
         const stream = new KaitaiStream(e.target.result)
         let sol
         let err
@@ -50,7 +49,6 @@ export default class Home extends Vue {
           console.error(e)
           err = '' + e
         }
-        console.log(sol, err)
         this.$store.dispatch('addFile', { name: file.name, solution: sol, error: err })
       }
       reader.readAsArrayBuffer(file)
@@ -58,7 +56,7 @@ export default class Home extends Vue {
   }
 
   public cancelFile(file: File): void {
-    console.log(file)
+    return
   }
 }
 </script>
