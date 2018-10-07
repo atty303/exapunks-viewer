@@ -4183,6 +4183,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+kaitai-struct@^0.8.0-SNAPSHOT.11:
+  version "0.8.0-SNAPSHOT.11"
+  resolved "https://registry.yarnpkg.com/kaitai-struct/-/kaitai-struct-0.8.0-SNAPSHOT.11.tgz#33236a29981021de119019d0aa87e20ed1c1abc9"
+  integrity sha512-KvwMkEJt6B9/5qwLSz6DoNge+aT9B2oyKXldbeZVeNl2c/BgpRuEIuVrEHJ/iSKp4H5IrjdMZTCtFrYFsn1R1g==
+
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"

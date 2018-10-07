@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "gen:ksy": "kaitai-struct-compiler src/ksy/solution.ksy -t javascript"
   },
   "dependencies": {
+    "kaitai-struct": "^0.8.0-SNAPSHOT.11",
     "quasar-extras": "^2.0.4",
     "quasar-framework": "^0.17.0",
     "vue": "^2.5.17",
