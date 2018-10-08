@@ -18,8 +18,8 @@ export default new Vuex.Store({
     addFile(state, file: SolutionFile): void {
       state.files.push(file)
     },
-    removeFile(state, name: string): void {
-      const idx = state.files.findIndex((v) => v.name === name)
+    removeFile(state, fileName: string): void {
+      const idx = state.files.findIndex((v) => v.fileName === fileName)
       if (idx >= 0) {
         state.files.splice(idx, 1)
       }
@@ -27,7 +27,7 @@ export default new Vuex.Store({
   },
   actions: {
     addFile(context, file: SolutionFile): void {
-      const idx = context.state.files.findIndex((v) => v.name === name)
+      const idx = context.state.files.findIndex((v) => v.fileName === file.fileName)
       if (idx < 0) {
         context.commit('addFile', file)
       }

@@ -1,11 +1,15 @@
 <template>
-  <q-card>
-    <q-card-title>
+  <q-card inline class="bigger q-ma-sm">
+    <q-card-title dark>
       {{ solutionFile.name }}
+      <span slot="right">
+        <q-btn round flat icon="delete" color="negative"/>
+      </span>
     </q-card-title>
-    <q-card-separator/>
     <q-card-main>
-      <prism language="markdown">{{ markdown }}</prism>
+      <pre data-src="plugins/toolbar/prism-toolbar.js">
+        <prism language="markdown">{{ markdown }}</prism>
+      </pre>
     </q-card-main>
   </q-card>
 </template>
@@ -13,18 +17,8 @@
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator'
   import { SolutionFile } from '@/models'
-  import * as _ from 'lodash'
   import Prism from 'vue-prism-component'
 
-  const mdTemplate = _.template(`
-<% _.each(exaInstances, function(exa) { %>
-## <%= exa.name.string %>
-
-\`\`\`
-<%= exa.code.string %>
-\`\`\`
-<% }) %>
-`)
 
   @Component({
     components: {
@@ -34,12 +28,12 @@
   export default class Solution extends Vue {
     @Prop() private solutionFile!: SolutionFile
 
-    private mdTemplate: any
-
     private get markdown(): string {
-      return mdTemplate({
-        exaInstances: this.solutionFile.solution.exaInstances
-      })
+      if (this.solutionFile.solution) {
+        return this.solutionFile.solution.codeMarkdown
+      } else {
+        return "" + this.solutionFile.error
+      }
     }
   }
 </script>

@@ -10,7 +10,10 @@ import Quasar from 'quasar'
 
 import 'prismjs'
 import 'prismjs/components/prism-markdown'
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/plugins/toolbar/prism-toolbar'
+import 'prismjs/plugins/toolbar/prism-toolbar.css'
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 
 Vue.use(Quasar, {
   config: {}, i18n: lang,
