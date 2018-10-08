@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist",
     "gen:ksy": "kaitai-struct-compiler src/ksy/solution.ksy -t javascript"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "@vue/cli-plugin-typescript": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "babel-plugin-transform-imports": "1.5.0",
+    "gh-pages": "^2.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "typescript": "^3.0.0",

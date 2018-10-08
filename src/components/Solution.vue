@@ -1,15 +1,19 @@
 <template>
-  <q-card inline class="bigger q-ma-sm">
-    <q-card-title dark>
+  <q-card inline class="bigger q-ma-md">
+    <q-card-title>
       {{ solutionFile.name }}
-      <span slot="right">
-        <q-btn round flat icon="delete" color="negative"/>
-      </span>
+      <q-icon slot="right" name="more_vert">
+        <q-popover>
+          <q-list link class="no-border">
+            <q-item v-close-overlay>
+              <q-item-main label="Remove Solution" />
+            </q-item>
+          </q-list>
+        </q-popover>
+      </q-icon>
     </q-card-title>
     <q-card-main>
-      <pre data-src="plugins/toolbar/prism-toolbar.js">
-        <prism language="markdown">{{ markdown }}</prism>
-      </pre>
+      <prism language="markdown">{{ markdown }}</prism>
     </q-card-main>
   </q-card>
 </template>
