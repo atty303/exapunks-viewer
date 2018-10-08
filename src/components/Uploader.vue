@@ -1,10 +1,5 @@
 <template>
-  <span>
-    <i aria-hidden="true" class="q-icon q-if-control relative-position overflow-hidden material-icons text-white">
-      cloud_upload
-      <input type="file" accept=".solution" multiple class="q-uploader-input absolute-full cursor-pointer" @change="addFiles">
-    </i>
-  </span>
+  <input type="file" accept=".solution" multiple class="q-uploader-input absolute-full cursor-pointer" @change="addFiles">
 </template>
 
 <script lang="ts">

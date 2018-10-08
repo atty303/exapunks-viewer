@@ -33,11 +33,7 @@
     @Prop() private solutionFile!: SolutionFile
 
     private get markdown(): string {
-      if (this.solutionFile.solution) {
-        return this.solutionFile.solution.codeMarkdown
-      } else {
-        return "" + this.solutionFile.error
-      }
+      return this.solutionFile.solution.codeMarkdown
     }
   }
 </script>

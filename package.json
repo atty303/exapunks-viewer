@@ -10,6 +10,7 @@
     "gen:ksy": "kaitai-struct-compiler src/ksy/solution.ksy -t javascript"
   },
   "dependencies": {
+    "jszip": "^3.1.5",
     "kaitai-struct": "^0.8.0-SNAPSHOT.11",
     "lodash": "^4.17.11",
     "prismjs": "^1.15.0",

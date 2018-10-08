@@ -13,7 +13,8 @@ import 'prismjs/components/prism-markdown'
 import 'prismjs/themes/prism-twilight.css'
 
 Vue.use(Quasar, {
-  config: {}, i18n: lang,
+  config: {},
+  i18n: lang,
  })
 
 Vue.config.productionTip = false

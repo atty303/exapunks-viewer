@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, } from 'vue-property-decorator'
+import {Component, Vue} from 'vue-property-decorator'
 
 import Solution from '@/components/Solution.vue'
-import { SolutionFile } from '@/models'
+import {SolutionFile} from '@/models'
 
 @Component({
   components: {
