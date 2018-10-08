@@ -28,12 +28,12 @@
         inset-delimiter
       >
         <q-item>
-          <q-item-side icon="cloud_upload"/>
+          <q-item-side icon="input"/>
           <q-item-main label="Upload solution files" />
           <Uploader/>
         </q-item>
         <q-item>
-          <q-item-side icon="cloud_download"/>
+          <q-item-side icon="get_app"/>
           <q-item-main label="Download as markdown" @click="download"/>
         </q-item>
 
