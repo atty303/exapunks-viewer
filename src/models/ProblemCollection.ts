@@ -1,7 +1,12 @@
+import JSZip from 'jszip'
 import {Problem, SolutionFile} from '@/models'
 
 export class ProblemCollection {
   public readonly problems: Problem[] = []
+
+  public get isEmpty(): boolean {
+    return this.problems.length === 0
+  }
 
   public addSolutionFile(solutionFile: SolutionFile): boolean {
     if (this.findBySolutionFile(solutionFile)) {
@@ -23,5 +28,15 @@ export class ProblemCollection {
 
   public findBySolutionFile(solutionFile: SolutionFile): Problem | undefined {
     return this.problems.find((_) => _.hasSolutionFile(solutionFile))
+  }
+
+  public generateMarkdownZip(): Promise<Blob> {
+    const zip = new JSZip()
+    this.problems.forEach((problem) => {
+      problem.solutionFiles.forEach((solutionFile) => {
+        zip.file(solutionFile.markdownFilename, solutionFile.codeMarkdown)
+      })
+    })
+    return zip.generateAsync({type : 'uint8array'})
   }
 }

@@ -9,6 +9,13 @@ export class SolutionFile {
   public readonly name: string
   public readonly index: number
 
+  public get markdownFilename(): string {
+    return this.fileName.replace(/\.solution$/i, '.md')
+  }
+  public get codeMarkdown(): string {
+    return this.solution.codeMarkdown
+  }
+
   constructor(fileName: string, bytes: ArrayBuffer) {
     this.fileName = fileName
     try {

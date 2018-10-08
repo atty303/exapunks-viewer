@@ -32,9 +32,9 @@
           <q-item-main label="Upload solution files" />
           <Uploader/>
         </q-item>
-        <q-item>
+        <q-item @click.native="download()">
           <q-item-side icon="get_app"/>
-          <q-item-main label="Download as markdown" @click="download"/>
+          <q-item-main label="Download as markdown"/>
         </q-item>
 
         <q-list v-if="problems.length > 0" no-border link inset-delimiter>
@@ -57,6 +57,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import FileSaver from 'file-saver'
+
 import Uploader from '@/components/Uploader.vue'
 import {Problem} from '@/models'
 
@@ -69,7 +71,7 @@ export default class LayoutDefault extends Vue {
   private $q: any
   private leftDrawerOpen: boolean = this.$q.platform.is.desktop
 
-  private get problems(): Problem {
+  private get problems(): Problem[] {
     return this.$store.getters.problems
   }
 
@@ -77,8 +79,9 @@ export default class LayoutDefault extends Vue {
     window.location.hash = fileId
   }
 
-  private download(): void {
-
+  private async download(): Promise<void> {
+    const buffer = await this.$store.state.problemCollection.generateMarkdownZip()
+    FileSaver.saveAs(new Blob([buffer]), 'exapunks-solutions.zip')
   }
 }
 </script>
